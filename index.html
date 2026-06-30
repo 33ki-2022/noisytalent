@@ -21,6 +21,11 @@
             </div>
             <div class="header__inner__nav">
                 <p class="header__inner__nav__heading">ADHDを</p>
+                <div class="header__inner__nav__hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <ul class="header__inner__nav__content">
                     <li><a href="#know">知る</a></li>
                     <li><a href="#look">見る</a></li>
@@ -40,9 +45,9 @@
             <div class="caption">
                 <p>あなたはADHDをどれほど理解していますか？</p>
                 <p>発達障害ADHD。<br><br>今やネットであるあるなどが投稿され、<br>知っている人も多いのではないでしょうか。</p>
-                <p>しかし、溢れているたくさんのコンテンツでは<br>ADHDにネガティブな印象を持つものが多い印象です。</p>
-                <p>ADHDは、本当に<br>ネガティブな面しか持っていないのでしょうか？</p>
-                <p>ADHDの特性を正しく理解してもらうこと。<br><br>ADHDを抱える人が、もっとADHDを好きになれること。<br><br><br>このサイトは、この目標のために<br>「知る」「見る」「触れる」「聴く」「感じる」の<br>5つの観点から、ADHDを伝えます。</p>
+                <p>しかし、溢れているたくさんのコンテンツでは<br class="pc">ADHDにネガティブな印象を持つものが多い印象です。</p>
+                <p>ADHDは、本当に<br class="pc">ネガティブな面しか持っていないのでしょうか？</p>
+                <p>ADHDの特性を正しく理解してもらうこと。<br class="pc"><br class="pc">ADHDを抱える人が、もっとADHDを好きになれること。<br><br><br>このサイトは、この目標のために<br>「知る」「見る」「触れる」「聴く」「感じる」の<br class="pc">5つの観点から、ADHDを伝えます。</p>
             </div>
         </section>
         <section id="know">
@@ -68,7 +73,7 @@
             </div>
             <div class="caption">
                 <p>どうでしょう。<br><br>意外と、ネガティブな一面だけでは<br>なさそうではないですか？</p>
-                <p>短所は長所にもなり得る、と言うように<br>実は、ADHDのネガティブに捉えられる特徴も<br>良い方向に働いてるものもあるのです。</p>
+                <p>短所は長所にもなり得る、と言うように<br>実は、ADHDのネガティブに捉えられる特徴も<br class="pc">良い方向に働いてるものもあるのです。</p>
                 <p>次はもう少し距離を縮めて、ADHDに触れてみませんか。</p>
             </div>
         </section>
@@ -81,7 +86,7 @@
                 <div class="graphic graphic02"></div>
             </div>
             <div class="caption">
-                <p>ADHDの特性を持っていたとされる偉人に、<br>トーマス・エジソンやアインシュタイン、<br>レオナルド・ダ・ヴィンチ、織田信長、坂本龍馬がいることは<br>ご存知ですか？</p>
+                <p>ADHDの特性を持っていたとされる偉人に、<br class="pc">トーマス・エジソンやアインシュタイン、<br class="pc">レオナルド・ダ・ヴィンチ、織田信長、坂本龍馬がいることは<br>ご存知ですか？</p>
                 <p>ADHDの特性は、時に武器になるのです。</p>
                 <p>さあ、ADHDと生きることはどんなことか？<br>のぞいてみましょう。</p>
             </div>
@@ -97,7 +102,7 @@
             <div class="caption">
                 <p>ここまでご閲覧いただき、ありがとうございます。</p>
                 <p>ADHDについて、<br>少し変わった方面からご紹介してきました。</p>
-                <p>このコンテンツで、<br>あなたの意識はどこまで変わりましたか？<br><br>感じてみてください。</p>
+                <p>このコンテンツで、<br class="pc">あなたの意識はどこまで変わりましたか？<br><br>感じてみてください。</p>
             </div>
         </section>
         <section id="think">
@@ -166,6 +171,7 @@
         <img src="images/pagetop.svg" alt="">
     </button>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script>
@@ -294,6 +300,14 @@
                 start: "top 80%",    // その <p> の上端が画面の上から80%（下から20%）に達したら
                 toggleClass: "is-active", // is-active クラスを付与
                 once: true           // スクロールを戻したときにアニメーションを繰り返さない（1回きり）ならtrue
+        });
+        });
+
+        $(function() {
+        $('.header__inner__nav__hamburger').click(function() {
+            $('.header__inner__nav__content').toggleClass('open');
+
+            $(this).toggleClass('active');
         });
         });
         </script>
