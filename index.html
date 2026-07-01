@@ -69,7 +69,19 @@
             </div>
             <div class="content textcenter">
                 <p>操作して、ADHDを探検してみてください。</p>
-                <div class="graphic graphic01"></div>
+                <div class="graphic graphic01">
+                    <model-viewer src="./images/adhd2_pre.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="0.37" exposure="0.67" shadow-softness="0.36" camera-orbit="180deg 90deg 31.3m" field-of-view="15deg">
+                        <div class="progress-bar hide" slot="progress-bar">
+                            <div class="update-bar"></div>
+                        </div>
+                        <button slot="ar-button" id="ar-button">
+                            View in your space
+                        </button>
+                        <div id="ar-prompt">
+                            <img src="./images/ar_hand_prompt.png">
+                        </div>
+                    </model-viewer>
+                </div>
             </div>
             <div class="caption">
                 <p>どうでしょう。<br><br>意外と、ネガティブな一面だけでは<br>なさそうではないですか？</p>
@@ -174,6 +186,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
     <script>
         const pageTopBtn = document.getElementById('page__top__btn');
 
@@ -310,6 +324,19 @@
             $(this).toggleClass('active');
         });
         });
+
+        const onProgress = (event) => {
+        const progressBar = event.target.querySelector('.progress-bar');
+        const updatingBar = event.target.querySelector('.update-bar');
+        updatingBar.style.width = `${event.detail.totalProgress * 100}%`;
+        if (event.detail.totalProgress === 1) {
+            progressBar.classList.add('hide');
+            event.target.removeEventListener('progress', onProgress);
+        } else {
+            progressBar.classList.remove('hide');
+        }
+        };
+        document.querySelector('model-viewer').addEventListener('progress', onProgress);
         </script>
 
 
