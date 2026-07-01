@@ -303,8 +303,9 @@ model-viewer > #ar-prompt > img {
     width: 500px;
 }
 
-.hero__mainvisual img {
+.hero__mainvisual {
     width: 100%;
+    margin-top: 200px;
 }
 
 .think_understand {
